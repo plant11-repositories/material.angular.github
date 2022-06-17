@@ -217,6 +217,8 @@ datepicker-sample.component.html
   - URL  
   https://stackblitz.com/run?file=src/app/datepicker-locale-example.ts
 
+![image](https://user-images.githubusercontent.com/38905609/174232463-5d97ae18-deeb-4254-95db-ded72188409b.png)
+
 
 
 
