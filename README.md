@@ -48,3 +48,14 @@ npm install @angular/material-moment-adapter
 npm install moment
 ```
 
+## コンポーネント 追加
+```
+ng generate component datepicker-sample
+```
+
+
+
+
+## 動作確認
+ng serve --o
+
