@@ -1,7 +1,6 @@
 # Angular Material 導入
 
 ## Node.js インストール
-
 [参考]  
 https://angular.io/guide/setup-local  
 https://nodejs.org/en/download/  
@@ -37,4 +36,15 @@ ng add @angular/material
 ? Choose a prebuilt theme name, or "custom" for a custom theme: Indigo/Pink        [ Preview: https://material.angular.io?theme=indigo-pink ]
 ? Set up global Angular Material typography styles? Yes  
 ? Include the Angular animations module? Include and enable animations
+```
+
+## [angular/material-moment-adapter]導入
+日付フォーマット対応用  
+[参考]  
+https://www.npmjs.com/package/@angular/material-moment-adapter/v/13.3.9
+
+```
+npm install @angular/material-moment-adapter
+
+npm install moment
 ```
