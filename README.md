@@ -25,7 +25,7 @@ https://nodejs.org/en/download/
 ## Angular Setup
 
 `ng version`  
-`npm uninstall -g @angular/cli`
+`npm uninstall -g @angular/cli`  
 ```
 npm install -g @angular/cli@14
 ng version
