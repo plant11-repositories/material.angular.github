@@ -22,3 +22,17 @@ https://nodejs.org/en/download/
 ![image](https://user-images.githubusercontent.com/38905609/174221710-44a8fa1b-a414-49f7-a24e-23d0510aa527.png)
 
 
+## Angular Setup
+
+`ng version`  
+`npm uninstall -g @angular/cli`
+```
+npm install -g @angular/cli@14
+ng version
+```
+
+## Create Angular Project
+```
+ng new datepicker.angular14
+```
+
