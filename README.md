@@ -29,7 +29,7 @@ ng new datepicker.angular14
 
 ## Angular Material 導入
   - URL  
-  https://v13.material.angular.io/guide/getting-started
+  https://material.angular.io/guide/getting-started
 ```
 ng add @angular/material
 
@@ -212,6 +212,10 @@ datepicker-sample.component.html
   <!-- #enddocregion toggle -->
   </mat-form-field>
 ```
+
+## datepickerの日本ロケール化
+  - URL  
+  https://stackblitz.com/run?file=src/app/datepicker-locale-example.ts
 
 
 
