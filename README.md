@@ -1,6 +1,6 @@
 # Angular Material datepicker 導入
 
-## datepicker イメージ
+## Angular Material datepicker イメージ
 ![image](https://user-images.githubusercontent.com/38905609/174232463-5d97ae18-deeb-4254-95db-ded72188409b.png)
 
 
@@ -9,7 +9,6 @@ https://angular.io/guide/setup-local
 https://nodejs.org/en/download/  
 ![image](https://user-images.githubusercontent.com/38905609/174221507-415108dd-d73a-497a-aef4-ebc27dd99e27.png)
 ![image](https://user-images.githubusercontent.com/38905609/174221619-1cf64e4b-97d4-4d72-99e5-0dcee2c20a60.png)
-![image](https://user-images.githubusercontent.com/38905609/174221710-44a8fa1b-a414-49f7-a24e-23d0510aa527.png)
 
 
 ## Angular インストール
@@ -54,15 +53,14 @@ https://angular.io/guide/component-overview
 ng generate component datepicker-sample
 ```
 
-`app.component.html`
+[`app.component.html`]を以下内容に書き換え。
 ```html:app.component.html
 <app-datepicker-sample></app-datepicker-sample>
 ```
 
 ## datepicker の組み込み
-  - URL  
-  https://v13.material.angular.io/components/datepicker/overview  
-  https://stackblitz.com/run?file=src/app/datepicker-overview-example.ts
+https://material.angular.io/components/datepicker/overview  
+https://stackblitz.com/run?file=src/app/datepicker-overview-example.ts
 
 material.module.ts
 ```ts:material.module.ts
