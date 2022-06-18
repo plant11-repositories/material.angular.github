@@ -224,7 +224,7 @@ ng serve --open
 
 ## datepickerの日本ロケール化
 日付フォーマットを日本ロケールに変更する(YYYY/MM/DD)
-https://stackblitz.com/run?file=src/app/datepicker-locale-example.ts  
+https://stackblitz.com/edit/angular-pn5xvs?file=src/app/datepicker-locale-example.ts  
 
 ![image](https://user-images.githubusercontent.com/38905609/174232463-5d97ae18-deeb-4254-95db-ded72188409b.png)
 
