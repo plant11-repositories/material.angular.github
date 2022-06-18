@@ -62,7 +62,7 @@ ng generate component datepicker-sample
 https://material.angular.io/components/datepicker/overview  
 https://stackblitz.com/edit/angular-3irqem?file=src/app/datepicker-overview-example.ts  
 
-[`material.module.ts`]を以下内容で作成。
+[`src/material.module.ts`]を以下内容で作成。
 ```ts:material.module.ts
 import {NgModule} from '@angular/core';
 import {A11yModule} from '@angular/cdk/a11y';
@@ -162,7 +162,7 @@ import {OverlayModule} from '@angular/cdk/overlay';
 export class MaterialExampleModule {}
 ```
 
-app.module.ts
+[`src/app/app.module.ts`]を以下内容へ書き換え。
 ```ts:app.module.ts
 ...
 import { NgModule } from '@angular/core';
@@ -198,7 +198,7 @@ import {HttpClientModule} from '@angular/common/http';
 export class AppModule { }
 ```
 
-datepicker-sample.component.html
+[`/src/app/datepicker-sample/datepicker-sample.component.html`]を以下内容で書き換え。
 ```html:datepicker-sample.component.html
 <p>datepicker-sample works!</p>
 <mat-form-field appearance="fill">
@@ -212,17 +212,21 @@ datepicker-sample.component.html
   </mat-form-field>
 ```
 
+## 動作確認
+https://angular.io/guide/setup-local
+
+```
+ng serve --open
+```
+
 ![image](https://user-images.githubusercontent.com/38905609/174232842-f29056c6-9a3c-4b2d-8ae6-51551f9770b2.png)
 
 
-
 ## datepickerの日本ロケール化
-  - URL  
-  https://stackblitz.com/run?file=src/app/datepicker-locale-example.ts
+日付フォーマットを日本ロケールに変更する(YYYY/MM/DD)
+https://stackblitz.com/run?file=src/app/datepicker-locale-example.ts  
 
 ![image](https://user-images.githubusercontent.com/38905609/174232463-5d97ae18-deeb-4254-95db-ded72188409b.png)
-
-
 
 
 ## 動作確認
