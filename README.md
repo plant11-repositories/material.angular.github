@@ -60,9 +60,9 @@ ng generate component datepicker-sample
 
 ## datepicker の組み込み
 https://material.angular.io/components/datepicker/overview  
-https://stackblitz.com/run?file=src/app/datepicker-overview-example.ts
+https://stackblitz.com/edit/angular-3irqem?file=src/app/datepicker-overview-example.ts  
 
-material.module.ts
+[`material.module.ts`]を以下内容で作成。
 ```ts:material.module.ts
 import {NgModule} from '@angular/core';
 import {A11yModule} from '@angular/cdk/a11y';
