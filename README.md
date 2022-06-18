@@ -214,6 +214,10 @@ datepicker-sample.component.html
   </mat-form-field>
 ```
 
+![image](https://user-images.githubusercontent.com/38905609/174232842-f29056c6-9a3c-4b2d-8ae6-51551f9770b2.png)
+
+
+
 ## datepickerの日本ロケール化
   - URL  
   https://stackblitz.com/run?file=src/app/datepicker-locale-example.ts
