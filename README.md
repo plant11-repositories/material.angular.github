@@ -33,3 +33,9 @@ ng add @angular/material
 ? Include the Angular animations module? Include and enable animations
 ```
 
+
+https://nanbu.marune205.net/2021/12/angular-material-waiting.html?m=1
+
+ng generate component spinner-sample
+
+ng generate service loading
