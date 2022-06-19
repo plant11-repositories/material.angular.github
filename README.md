@@ -302,5 +302,5 @@ ng serve --open
 ![image](https://user-images.githubusercontent.com/38905609/174232463-5d97ae18-deeb-4254-95db-ded72188409b.png)
 
 ## github
-ソースは下記githubを参照下さい。
+ソースは下記githubを参照下さい。  
 https://github.com/jun-knd/material.angular.github/tree/datepicker
