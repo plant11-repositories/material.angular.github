@@ -37,16 +37,6 @@ ng add @angular/material
 ? Include the Angular animations module? Include and enable animations
 ```
 
-## [angular/material-moment-adapter]導入
-※日付フォーマット対応用  
-https://www.npmjs.com/package/@angular/material-moment-adapter/v/14.0.2
-
-```
-npm install @angular/material-moment-adapter
-
-npm install moment
-```
-
 ## コンポーネント 作成
 https://angular.io/guide/component-overview
 ```
@@ -226,9 +216,91 @@ ng serve --open
 日付フォーマットを日本ロケールに変更する(YYYY/MM/DD)
 https://stackblitz.com/edit/angular-pn5xvs?file=src/app/datepicker-locale-example.ts  
 
-![image](https://user-images.githubusercontent.com/38905609/174232463-5d97ae18-deeb-4254-95db-ded72188409b.png)
+
+## [angular/material-moment-adapter]導入
+※日付フォーマット対応用  
+https://www.npmjs.com/package/@angular/material-moment-adapter/v/14.0.2
+
+```
+npm install @angular/material-moment-adapter
+
+npm install moment
+```
+
+[`/src/app/datepicker-sample/datepicker-sample.component.ts`]を以下内容で書き換え。
+```ts:datepicker-sample.component.ts
+import {Component, Inject} from '@angular/core';
+import {
+  MAT_MOMENT_DATE_FORMATS,
+  MomentDateAdapter,
+  MAT_MOMENT_DATE_ADAPTER_OPTIONS,
+} from '@angular/material-moment-adapter';
+import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
+import 'moment/locale/ja';
+import 'moment/locale/fr';
+
+/** @title Datepicker with different locale */
+@Component({
+  selector: 'app-datepicker-sample',
+  templateUrl: 'datepicker-sample.component.html',
+  styleUrls: ['datepicker-sample.component.css'],
+  providers: [
+    // The locale would typically be provided on the root module of your application. We do it at
+    // the component level here, due to limitations of our example generation script.
+    {provide: MAT_DATE_LOCALE, useValue: 'ja-JP'},
+
+    // `MomentDateAdapter` and `MAT_MOMENT_DATE_FORMATS` can be automatically provided by importing
+    // `MatMomentDateModule` in your applications root module. We provide it at the component level
+    // here, due to limitations of our example generation script.
+    {
+      provide: DateAdapter,
+      useClass: MomentDateAdapter,
+      deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS],
+    },
+    {provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS},
+  ],
+})
+export class DatepickerSampleComponent {
+
+  constructor(
+    private _adapter: DateAdapter<any>,
+    @Inject(MAT_DATE_LOCALE) private _locale: string,
+  ) {}
+
+  getDateFormatString(): string {
+    if (this._locale === 'ja-JP') {
+      return 'YYYY/MM/DD';
+    } else if (this._locale === 'fr') {
+      return 'DD/MM/YYYY';
+    }
+    return '';
+  }
+
+}
+```
+
+[`/src/app/datepicker-sample/datepicker-sample.component.html`]を以下内容で書き換え。
+```html:datepicker-sample.component.html
+<p>datepicker-sample works!</p>
+<mat-form-field appearance="fill">
+  <mat-label>input date</mat-label>
+  <input matInput [matDatepicker]="dp">
+  <mat-hint>{{getDateFormatString()}}</mat-hint>
+  <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+  <mat-datepicker #dp></mat-datepicker>
+</mat-form-field>
+```
 
 
 ## 動作確認
-ng serve --o
+https://angular.io/guide/setup-local
 
+```
+ng serve --open
+```
+
+![image](https://user-images.githubusercontent.com/38905609/174232463-5d97ae18-deeb-4254-95db-ded72188409b.png)
+
+## github
+ソースは下記githubを参照下さい。
+https://github.com/jun-knd/material.angular.github/tree/datepicker
