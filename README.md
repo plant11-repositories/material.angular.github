@@ -33,38 +33,6 @@ ng add @angular/material
 ? Include the Angular animations module? Include and enable animations
 ```
 
-## Material ProgressSpinner 導入
-`app.module.ts`
-```ts:app.module.ts
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SpinnerSampleComponent } from './spinner-sample/spinner-sample.component';
-
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';     // add
-import {MatButtonModule} from '@angular/material/button';                        // add
-
-@NgModule({
-  declarations: [
-    AppComponent,
-    SpinnerSampleComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatProgressSpinnerModule,   // add
-    MatButtonModule,            // add
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
-})
-export class AppModule { }
-```
-
 
 ## サービスの作成
 ```
@@ -101,6 +69,40 @@ export class LoadingService {
 ```
 ng generate component spinner-sample
 ```
+
+
+## Material ProgressSpinner 導入
+`app.module.ts`
+```ts:app.module.ts
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SpinnerSampleComponent } from './spinner-sample/spinner-sample.component';
+
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';     // add
+import {MatButtonModule} from '@angular/material/button';                        // add
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    SpinnerSampleComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatProgressSpinnerModule,   // add
+    MatButtonModule,            // add
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
+
 
 ## ComponentとSpinnerの組み込み
 
