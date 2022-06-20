@@ -232,3 +232,5 @@ export class SpinnerSampleComponent implements OnInit {
 ## 👇参考
 https://nanbu.marune205.net/2021/12/angular-material-waiting.html?m=1
 
+## 👇GitHubはこちらを参照下さい。
+https://github.com/jun-knd/material.angular.github/tree/progress-spinner
