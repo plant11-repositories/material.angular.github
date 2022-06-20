@@ -15,21 +15,17 @@ export class SpinnerSampleComponent implements OnInit {
   }
 
   button_click(){
-    console.log("test");
     this.showLoading("loading");
     setTimeout(() => {
       this.hideLoading();
-      console.log("test2222");
-    }, 1000);
+    }, 2000);
   }
 
   showLoading(strMessage: string):void {
-    //処理中の画面を表示させます
     this.loadingService.setLoading(strMessage);
  }
 
  hideLoading():void {
-    //処理中の画面を消します
     this.loadingService.setLoading("");
  }
 }
