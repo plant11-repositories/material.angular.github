@@ -13,4 +13,9 @@ export class LoadingService {
   setLoading(strMessage: string): void {
     this.subject.next(strMessage);
   }
+
+  unsetLoading(): void {
+    this.subject.next('');
+  }
+
 }

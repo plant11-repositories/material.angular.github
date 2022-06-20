@@ -23,9 +23,9 @@ export class SpinnerSampleComponent implements OnInit {
 
   showLoading(strMessage: string):void {
     this.loadingService.setLoading(strMessage);
- }
+  }
 
- hideLoading():void {
-    this.loadingService.setLoading("");
- }
+  hideLoading():void {
+    this.loadingService.unsetLoading();
+  }
 }
