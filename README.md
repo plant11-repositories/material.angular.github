@@ -1,5 +1,18 @@
 # Angular Material ProgressSpinner 導入
 
+Angular Material ProgressSpinner を導入し、ON OFF する処理を組み込む。
+
+## Angular Material ProgressSpinner 導入後イメージ
+
+
+![image](https://user-images.githubusercontent.com/38905609/174576473-cb32bcec-94d0-4788-8e53-4e2f9329de99.png)
+
+![image](https://user-images.githubusercontent.com/38905609/174576198-b0bb54a8-0ffc-4d67-8414-3626f82d2708.png)
+
+![image](https://user-images.githubusercontent.com/38905609/174576473-cb32bcec-94d0-4788-8e53-4e2f9329de99.png)
+
+
+
 ## Node.js インストール
 https://angular.io/guide/setup-local  
 https://nodejs.org/en/download/  
