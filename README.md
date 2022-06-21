@@ -160,3 +160,8 @@ import { MaterialModule } from '../material.module';        // add
 })
 export class AppModule { }
 ```
+
+
+ng generate component tree-sample
+
+
