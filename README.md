@@ -301,8 +301,9 @@ Stackblitzで開くためには、以下コードを定義
 </a>
 
 ## 👇GitHub
-https://stackblitz.com/github/jun-knd/material.angular.github/tree/tree
+https://stackblitz.com/github/jun-knd/material.angular.github/tree/tree  
 
 ## 👇参考
 
-https://developer.stackblitz.com/docs/guide/open-from-github
+https://developer.stackblitz.com/docs/guide/open-from-github  
+https://material.angular.io/components/tree/overview  
