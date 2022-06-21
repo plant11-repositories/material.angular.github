@@ -10,8 +10,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from '../material.module';
 import { TreeSampleComponent } from './tree-sample/tree-sample.component';        // add
 
-import { OverlayModule } from '@angular/cdk/overlay';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,9 +19,8 @@ import { OverlayModule } from '@angular/cdk/overlay';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule,                // add
     HttpClientModule,
-    OverlayModule,
+    MaterialModule,                // add
   ],
   providers: [],
   bootstrap: [AppComponent]

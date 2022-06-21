@@ -23,10 +23,7 @@ export class DynamicDatabase {
     {name: 'root',type: 'folder'},
 ];
 
-
-  /** Initial data from database */
   initialData(): DynamicFlatNode[] {
-    //return this.rootLevelNodes.map(name => new DynamicFlatNode(name, 0, 'file', true));
     return this.topNodes.map(tn => {
       if(tn.type=='file'){
         return new DynamicFlatNode(tn.name,'', 0, tn.type, false);
@@ -71,7 +68,6 @@ export class DynamicDataSource implements DataSource<DynamicFlatNode> {
 
   disconnect(collectionViewer: CollectionViewer): void {}
 
-  /** Handle expand/collapse behaviors */
   handleTreeControl(change: SelectionChange<DynamicFlatNode>) {
     if (change.added) {
       change.added.forEach(node => this.toggleNode(node, true));
@@ -84,15 +80,8 @@ export class DynamicDataSource implements DataSource<DynamicFlatNode> {
     }
   }
 
-  /**
-   * Toggle the node, remove from display list
-   */
   toggleNode(node: DynamicFlatNode, expand: boolean) {
     const index = this.data.indexOf(node);
-    //if (!children || index < 0) {
-      // If no children, or cannot find the node, no op
-      //return;
-    //}
 
     if (expand) {
 
@@ -106,11 +95,6 @@ export class DynamicDataSource implements DataSource<DynamicFlatNode> {
           {name: 'under_file01',type: 'file'},
           {name: 'under_file02',type: 'file'},
         ];
-
-
-        // const nodes = children.map(
-        //   name => new DynamicFlatNode(name, node.level + 1, this._database.isExpandable(name)),
-        // );
 
         const nodes = childNodes.map(
           cn => {
@@ -129,7 +113,6 @@ export class DynamicDataSource implements DataSource<DynamicFlatNode> {
         node.isLoading = false;
       }, 1000);
 
-
     }else{
 
       let count = 0;
@@ -143,7 +126,6 @@ export class DynamicDataSource implements DataSource<DynamicFlatNode> {
       this.dataChange.next(this.data);
 
     }
-
 
   }
 }
@@ -167,13 +149,9 @@ export class TreeSampleComponent{
   }
 
   treeControl: FlatTreeControl<DynamicFlatNode>;
-
   dataSource: DynamicDataSource;
-
   getLevel = (node: DynamicFlatNode) => node.level;
-
   isExpandable = (node: DynamicFlatNode) => node.expandable;
-
   hasChild = (_: number, _nodeData: DynamicFlatNode) => _nodeData.expandable;
 
 }
