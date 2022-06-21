@@ -8,7 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 
 import { MaterialModule } from '../material.module';
-import { TreeSampleComponent } from './tree-sample/tree-sample.component';        // add
+import { TreeSampleComponent } from './tree-sample/tree-sample.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,7 @@ import { TreeSampleComponent } from './tree-sample/tree-sample.component';      
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    MaterialModule,                // add
+    MaterialModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

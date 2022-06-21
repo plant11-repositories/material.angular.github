@@ -1,140 +1,26 @@
-# Angular Material 導入
+# Angular Material 動的Tree 導入
 
-## Node.js インストール
-https://angular.io/guide/setup-local  
-https://nodejs.org/en/download/  
-![image](https://user-images.githubusercontent.com/38905609/174221507-415108dd-d73a-497a-aef4-ebc27dd99e27.png)
-![image](https://user-images.githubusercontent.com/38905609/174221619-1cf64e4b-97d4-4d72-99e5-0dcee2c20a60.png)
+## 動的Tree導入後イメージ
+![image](https://user-images.githubusercontent.com/38905609/174697935-d959c611-6b90-4d0a-a5f9-772e397744e0.png)
 
+![image](https://user-images.githubusercontent.com/38905609/174697956-6ea53fb5-dc57-4c65-9728-14a24c63287b.png)
 
-## Angular インストール
-https://angular.io/guide/setup-local  
-過去バージョンがセットアップされている場合は先にアンインストールする。  
-`ng version`  
-`npm uninstall -g @angular/cli`  
-```
-npm install -g @angular/cli@14
-ng version
-```
+![image](https://user-images.githubusercontent.com/38905609/174697975-2934fa47-8d9f-4288-8889-61c8e8f50232.png)
 
-## Angular Project 作成
-https://angular.io/guide/setup-local
-```
-ng new material.angular.github
-```
 
 ## Angular Material 導入
-https://material.angular.io/guide/getting-started
-```
-ng add @angular/material
+👇以下参照下さい。  
+https://github.com/jun-knd/material.angular.github/tree/material
 
-? Choose a prebuilt theme name, or "custom" for a custom theme: Indigo/Pink        [ Preview: https://material.angular.io?theme=indigo-pink ]
-? Set up global Angular Material typography styles? Yes  
-? Include the Angular animations module? Include and enable animations
-```
-
-[`src/material.module.ts`]を以下内容で作成。
-```ts:material.module.ts
-import {NgModule} from '@angular/core';
-import {A11yModule} from '@angular/cdk/a11y';
-import {CdkAccordionModule} from '@angular/cdk/accordion';
-import {ClipboardModule} from '@angular/cdk/clipboard';
-import {DragDropModule} from '@angular/cdk/drag-drop';
-import {PortalModule} from '@angular/cdk/portal';
-import {ScrollingModule} from '@angular/cdk/scrolling';
-import {CdkStepperModule} from '@angular/cdk/stepper';
-import {CdkTableModule} from '@angular/cdk/table';
-import {CdkTreeModule} from '@angular/cdk/tree';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import {MatBadgeModule} from '@angular/material/badge';
-import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
-import {MatButtonModule} from '@angular/material/button';
-import {MatButtonToggleModule} from '@angular/material/button-toggle';
-import {MatCardModule} from '@angular/material/card';
-import {MatCheckboxModule} from '@angular/material/checkbox';
-import {MatChipsModule} from '@angular/material/chips';
-import {MatStepperModule} from '@angular/material/stepper';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatDividerModule} from '@angular/material/divider';
-import {MatExpansionModule} from '@angular/material/expansion';
-import {MatGridListModule} from '@angular/material/grid-list';
-import {MatIconModule} from '@angular/material/icon';
-import {MatInputModule} from '@angular/material/input';
-import {MatListModule} from '@angular/material/list';
-import {MatMenuModule} from '@angular/material/menu';
-import {MatNativeDateModule, MatRippleModule} from '@angular/material/core';
-import {MatPaginatorModule} from '@angular/material/paginator';
-import {MatProgressBarModule} from '@angular/material/progress-bar';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import {MatRadioModule} from '@angular/material/radio';
-import {MatSelectModule} from '@angular/material/select';
-import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatSliderModule} from '@angular/material/slider';
-import {MatSlideToggleModule} from '@angular/material/slide-toggle';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
-import {MatSortModule} from '@angular/material/sort';
-import {MatTableModule} from '@angular/material/table';
-import {MatTabsModule} from '@angular/material/tabs';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatTooltipModule} from '@angular/material/tooltip';
-import {MatTreeModule} from '@angular/material/tree';
-import {OverlayModule} from '@angular/cdk/overlay';
-
-@NgModule({
-  exports: [
-    A11yModule,
-    CdkAccordionModule,
-    ClipboardModule,
-    CdkStepperModule,
-    CdkTableModule,
-    CdkTreeModule,
-    DragDropModule,
-    MatAutocompleteModule,
-    MatBadgeModule,
-    MatBottomSheetModule,
-    MatButtonModule,
-    MatButtonToggleModule,
-    MatCardModule,
-    MatCheckboxModule,
-    MatChipsModule,
-    MatStepperModule,
-    MatDatepickerModule,
-    MatDialogModule,
-    MatDividerModule,
-    MatExpansionModule,
-    MatGridListModule,
-    MatIconModule,
-    MatInputModule,
-    MatListModule,
-    MatMenuModule,
-    MatNativeDateModule,
-    MatPaginatorModule,
-    MatProgressBarModule,
-    MatProgressSpinnerModule,
-    MatRadioModule,
-    MatRippleModule,
-    MatSelectModule,
-    MatSidenavModule,
-    MatSliderModule,
-    MatSlideToggleModule,
-    MatSnackBarModule,
-    MatSortModule,
-    MatTableModule,
-    MatTabsModule,
-    MatToolbarModule,
-    MatTooltipModule,
-    MatTreeModule,
-    OverlayModule,
-    PortalModule,
-    ScrollingModule,
-  ]
-})
-export class MaterialModule {}
+## コンポーネント追加
 
 ```
+ng generate component tree-sample
+```
 
-[`src/app/app.module.ts`]を以下内容へ書き換え。
+## コンポーネント組み込み
+
+`app.module.ts`
 ```ts:app.module.ts
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -143,25 +29,280 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MaterialModule } from '../material.module';        // add
+import { HttpClientModule } from '@angular/common/http';
+
+import { MaterialModule } from '../material.module';
+import { TreeSampleComponent } from './tree-sample/tree-sample.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TreeSampleComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule,                // add
+    HttpClientModule,
+    MaterialModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
 ```
 
+`app.component.html`
+```html:app.component.html
+<app-tree-sample></app-tree-sample>
 
-ng generate component tree-sample
+```
 
+## コンポーネント定義
 
+`tree-sample.component.css`
+```css:tree-sample.component.css
+.example-tree-progress-bar {
+  margin-left: 30px;
+}
+.type-icon {
+  color: #757575;
+  margin-right: 5px;
+}
+
+```
+
+`tree-sample.component.ts`
+```ts:tree-sample.component.ts
+import {CollectionViewer, SelectionChange, DataSource} from '@angular/cdk/collections';
+import {FlatTreeControl} from '@angular/cdk/tree';
+import {Component, Injectable } from '@angular/core';
+import {BehaviorSubject, merge, Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+
+export class DynamicFlatNode {
+  constructor(
+    public item: string,
+    public id: string,
+    public level = 1,
+    public type = 'file',
+    public expandable = false,
+    public isLoading = false,
+  ) {}
+}
+
+@Injectable({providedIn: 'root'})
+export class DynamicDatabase {
+
+  topNodes = [
+    {name: 'root',type: 'folder'},
+];
+
+  initialData(): DynamicFlatNode[] {
+    return this.topNodes.map(tn => {
+      if(tn.type=='file'){
+        return new DynamicFlatNode(tn.name,'', 0, tn.type, false);
+      }else{
+        return new DynamicFlatNode(tn.name,'', 0, tn.type, true);
+      }
+    }
+    );
+  }
+
+}
+
+export class DynamicDataSource implements DataSource<DynamicFlatNode> {
+  dataChange = new BehaviorSubject<DynamicFlatNode[]>([]);
+
+  get data(): DynamicFlatNode[] {
+    return this.dataChange.value;
+  }
+  set data(value: DynamicFlatNode[]) {
+    this._treeControl.dataNodes = value;
+    this.dataChange.next(value);
+  }
+
+  constructor(
+    private _treeControl: FlatTreeControl<DynamicFlatNode>,
+    private _database: DynamicDatabase,
+    private http: HttpClient,
+  ) {}
+
+  connect(collectionViewer: CollectionViewer): Observable<DynamicFlatNode[]> {
+    this._treeControl.expansionModel.changed.subscribe(change => {
+      if (
+        (change as SelectionChange<DynamicFlatNode>).added ||
+        (change as SelectionChange<DynamicFlatNode>).removed
+      ) {
+        this.handleTreeControl(change as SelectionChange<DynamicFlatNode>);
+      }
+    });
+
+    return merge(collectionViewer.viewChange, this.dataChange).pipe(map(() => this.data));
+  }
+
+  disconnect(collectionViewer: CollectionViewer): void {}
+
+  handleTreeControl(change: SelectionChange<DynamicFlatNode>) {
+    if (change.added) {
+      change.added.forEach(node => this.toggleNode(node, true));
+    }
+    if (change.removed) {
+      change.removed
+        .slice()
+        .reverse()
+        .forEach(node => this.toggleNode(node, false));
+    }
+  }
+
+  toggleNode(node: DynamicFlatNode, expand: boolean) {
+    const index = this.data.indexOf(node);
+
+    if (expand) {
+
+      node.isLoading = true;
+
+      setTimeout(() => {
+
+        let childNodes = [
+          {name: 'under01',type: 'folder'},
+          {name: 'under02',type: 'folder'},
+          {name: 'under_file01',type: 'file'},
+          {name: 'under_file02',type: 'file'},
+        ];
+
+        const nodes = childNodes.map(
+          cn => {
+            if(cn.type=='file'){
+              return new DynamicFlatNode(cn.name,"0", node.level + 1, cn.type, false);
+            }else{
+              return new DynamicFlatNode(cn.name,"0", node.level + 1, cn.type, true);
+            }
+          }
+        );
+
+        this.data.splice(index + 1, 0, ...nodes);
+
+        // notify the change
+        this.dataChange.next(this.data);
+        node.isLoading = false;
+      }, 1000);
+
+    }else{
+
+      let count = 0;
+      for (
+        let i = index + 1;
+        i < this.data.length && this.data[i].level > node.level;
+        i++, count++
+      ) {}
+      this.data.splice(index + 1, count);
+
+      this.dataChange.next(this.data);
+
+    }
+
+  }
+}
+
+@Component({
+  selector: 'app-tree-sample',
+  templateUrl: './tree-sample.component.html',
+  styleUrls: ['./tree-sample.component.css']
+})
+export class TreeSampleComponent{
+
+  constructor(
+    database: DynamicDatabase,
+    private http: HttpClient,
+  ) {
+  this.treeControl = new FlatTreeControl<DynamicFlatNode>(this.getLevel, this.isExpandable);
+  this.dataSource = new DynamicDataSource(this.treeControl, database,http);
+
+  this.dataSource.data = database.initialData();
+
+  }
+
+  treeControl: FlatTreeControl<DynamicFlatNode>;
+  dataSource: DynamicDataSource;
+  getLevel = (node: DynamicFlatNode) => node.level;
+  isExpandable = (node: DynamicFlatNode) => node.expandable;
+  hasChild = (_: number, _nodeData: DynamicFlatNode) => _nodeData.expandable;
+
+}
+
+```
+
+`tree-sample.component.html`
+```html:tree-sample.component.html
+<p>tree-sample works!</p>
+<mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+  <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
+    <button mat-icon-button disabled></button>
+    <mat-icon class="type-icon" [attr.aria-label]="node.type + 'icon'">
+      {{ node.type ==='file' ? 'description' : 'folder' }}
+    </mat-icon>
+    {{node.item}}
+  </mat-tree-node>
+  <mat-tree-node *matTreeNodeDef="let node; when: hasChild" matTreeNodePadding>
+    <button mat-icon-button
+            [attr.aria-label]="'Toggle ' + node.item" matTreeNodeToggle>
+      <mat-icon class="mat-icon-rtl-mirror">
+        {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+      </mat-icon>
+    </button>
+    <mat-radio-button value="{{node.name}}" >
+    <mat-icon class="type-icon" [attr.aria-label]="node.type + 'icon'">
+      {{ node.type ==='file' ? 'description' : 'folder' }}
+    </mat-icon>
+    {{node.item}}
+    </mat-radio-button>
+    <mat-progress-bar *ngIf="node.isLoading"
+                      mode="indeterminate"
+                      class="example-tree-progress-bar"></mat-progress-bar>
+  </mat-tree-node>
+</mat-tree>
+
+```
+
+## 動作確認
+```
+ng s --o
+```
+
+## Stackblitz
+Stackblitzで開くためには、以下コードを定義
+```
+<a href="https://stackblitz.com/github/___YOUR_PATH___">
+  <img
+    src="https://developer.stackblitz.com/img/open_in_stackblitz.svg"
+    alt="Open in StackBlitz"
+  />
+</a>
+
+本記事のGitHubを開くリンクが以下
+<a href="https://stackblitz.com/github/jun-knd/material.angular.github/tree/tree">
+  <img
+    src="https://developer.stackblitz.com/img/open_in_stackblitz.svg"
+    alt="Open in StackBlitz"
+  />
+</a>
+
+```
+
+実際のリンクがこちら  
+<a href="https://stackblitz.com/github/jun-knd/material.angular.github/tree/tree">
+  <img
+    src="https://developer.stackblitz.com/img/open_in_stackblitz.svg"
+    alt="Open in StackBlitz"
+  />
+</a>
+
+## 👇GitHub
+https://stackblitz.com/github/jun-knd/material.angular.github/tree/tree
+
+## 👇参考
+
+https://developer.stackblitz.com/docs/guide/open-from-github
