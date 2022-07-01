@@ -9,6 +9,8 @@ import { MaterialModule } from '../material.module';
 import { HeaderComponent } from './header/header.component';
 import { MainComponent } from './main/main.component';
 
+import { HttpClientModule } from '@angular/common/http';  // add
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +21,8 @@ import { MainComponent } from './main/main.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule,                // add
+    MaterialModule,
+    HttpClientModule,   // add
   ],
   providers: [],
   bootstrap: [AppComponent]
