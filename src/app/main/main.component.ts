@@ -14,6 +14,7 @@ export class MainComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.commonService.cognitoAuth();
   }
 
   buttonClick(){
