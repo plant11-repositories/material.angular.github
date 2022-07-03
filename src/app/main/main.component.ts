@@ -43,8 +43,6 @@ export class MainComponent implements OnInit {
       next:(data) => {
         console.log("OK");
         console.log(data);
-        let id_token = data["id_token"];
-        console.log("id_token:" + id_token);
       },
       error:(e) =>{
         console.log("NG");
