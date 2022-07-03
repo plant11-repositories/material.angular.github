@@ -8,9 +8,15 @@ import { Buffer } from 'buffer'
 })
 export class CommonService {
 
+  private access_token: string = "";
+
   constructor(
     private http: HttpClient,
   ) { }
+
+  getToken(){
+    return this.access_token;
+  }
 
   func01(){
     location.href="https://user-pool-example01-for-github-public.auth.ap-southeast-1.amazoncognito.com/oauth2/authorize?response_type=code&client_id=48kieim2ji4v03l7g005khk7ft&redirect_uri=http://localhost:4200/&state=STATE&scope=openid+email";
@@ -63,6 +69,7 @@ export class CommonService {
           console.log(data);
           let id_token = data["id_token"];
           console.log("id_token:" + id_token);
+          this.access_token = id_token;
         },
         error:(e) =>{
           console.log("ng");

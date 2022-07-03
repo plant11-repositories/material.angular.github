@@ -26,9 +26,12 @@ export class MainComponent implements OnInit {
 
   button02Click(){
 
+    let access_token = this.commonService.getToken();
+    //console.log("acc_token:" + access_token);
+
     let httpHeaders = new HttpHeaders({
       'Content-Type' : 'application/json',
-      //'Authorization' : access_token,
+      'Authorization' : access_token,
     });
     let get_params = new HttpParams()
       .set("param1","aaa");
