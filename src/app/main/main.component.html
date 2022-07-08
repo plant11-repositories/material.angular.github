@@ -1,4 +1,13 @@
 <div class="content" role="main">
   <p>mainworks !</p>
-  <button mat-raised-button color="primary" (click)="buttonClick()">Call Func</button>
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-label>input date</mat-label>
+    <input matInput [matDatepicker]="dp">
+    <mat-hint>{{getDateFormatString()}}</mat-hint>
+    <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+    <mat-datepicker #dp></mat-datepicker>
+  </mat-form-field>
+
+
 </div>
