@@ -70,8 +70,11 @@ export class UploaderComponent implements OnInit {
       next:(data) => {
         console.log("OK");
         console.log(data);
-        let upload_url = data.upload_url;
+        let upload_url = data;
         console.log("upload_url:" + upload_url);
+
+        this.upload_s3(upload_url);
+
       },
       error:(e) =>{
         console.log("NG");
@@ -86,10 +89,27 @@ export class UploaderComponent implements OnInit {
 
   upload_s3(uploadUrl:string){
 
-    const options = {
-      reportProgress: true,
-      observe: "events",
-    };
+    this.http.put<any>(uploadUrl,this.fd
+      ,{reportProgress: true,observe: "events"}).subscribe({
+      next:(event) => {
+        if (event.type === HttpEventType.UploadProgress && event.total) {
+          this.progress = Math.round(100 * event.loaded / event.total);
+        } else if (event instanceof HttpResponse) {
+          console.log(event);
+          //console.log(event.body.message);
+          //this.fileInfos = this.uploadService.getFiles();
+        }
+
+      },
+      error:(e) =>{
+        console.log("NG");
+        console.error(e);
+      },
+      complete: () => {
+        console.log("complete");
+      }
+    })
+
 
 
     this.http.put<any>(uploadUrl,this.fd
