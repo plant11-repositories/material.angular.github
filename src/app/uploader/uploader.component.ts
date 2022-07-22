@@ -49,6 +49,73 @@ export class UploaderComponent implements OnInit {
   upload(): void {
     this.progress = 0;
     this.message = "";
-    alert("upload!!!");
+    //alert("upload!!!");
+
+    let file_name : string = String(this.currentFile?.name);
+    console.log("file_name:" + file_name);
+
+    const httpHeaders = new HttpHeaders({
+      'Content-Type' : 'application/json',
+    });
+
+    const options = {
+      headers: httpHeaders,
+      params: {"file_name":file_name},
+      reportProgress: false,
+    };
+
+    const url = "https://testtest/v1";
+
+    this.http.get<any>(url,options).subscribe(data => {
+      console.log("successs get");
+      console.log(data);
+
+      let upload_url = data.upload_url;
+      console.log("upload_url:" + upload_url);
+
+      this.upload_s3(upload_url);
+
+
+      },
+      error => {
+        console.log("error");
+        console.log(error);
+      },
+      () => {
+        console.log("always");
+      }
+
+    );
+  }
+
+  upload_s3(uploadUrl:string){
+
+    const options = {
+      reportProgress: true,
+      observe: "events",
+    };
+
+
+    this.http.put<any>(uploadUrl,this.fd
+      ,{reportProgress: true,observe: "events"}
+      ).subscribe(
+      (event: any) => {
+
+        if (event.type === HttpEventType.UploadProgress) {
+          this.progress = Math.round(100 * event.loaded / event.total);
+        } else if (event instanceof HttpResponse) {
+          console.log(event);
+          //console.log(event.body.message);
+          //this.fileInfos = this.uploadService.getFiles();
+        }
+      },
+      (error:any) => {
+        console.log("error");
+        console.log(error);
+        this.progress = 0;
+      }
+
+    );
+
   }
 }
