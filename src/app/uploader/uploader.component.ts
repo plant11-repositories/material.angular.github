@@ -110,28 +110,5 @@ export class UploaderComponent implements OnInit {
       }
     })
 
-
-
-    this.http.put<any>(uploadUrl,this.fd
-      ,{reportProgress: true,observe: "events"}
-      ).subscribe(
-      (event: any) => {
-
-        if (event.type === HttpEventType.UploadProgress) {
-          this.progress = Math.round(100 * event.loaded / event.total);
-        } else if (event instanceof HttpResponse) {
-          console.log(event);
-          //console.log(event.body.message);
-          //this.fileInfos = this.uploadService.getFiles();
-        }
-      },
-      (error:any) => {
-        console.log("error");
-        console.log(error);
-        this.progress = 0;
-      }
-
-    );
-
   }
 }
