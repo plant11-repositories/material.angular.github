@@ -9,13 +9,15 @@ import { MaterialModule } from '../material.module';
 import { HeaderComponent } from './header/header.component';
 import { MainComponent } from './main/main.component';
 
-import { HttpClientModule } from '@angular/common/http';  // add
+import { HttpClientModule } from '@angular/common/http';
+import { UploaderComponent } from './uploader/uploader.component';  // add
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    MainComponent
+    MainComponent,
+    UploaderComponent
   ],
   imports: [
     BrowserModule,
