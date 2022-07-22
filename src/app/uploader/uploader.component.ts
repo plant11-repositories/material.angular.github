@@ -42,7 +42,7 @@ export class UploaderComponent implements OnInit {
       this.fd.append("upfile",this.currentFile);
       //this.fddd: FormData = new FormData();
     } else {
-      this.fileName = "Select File                           ";
+      this.fileName = "Select File";
     }
   }
 
@@ -64,28 +64,24 @@ export class UploaderComponent implements OnInit {
       reportProgress: false,
     };
 
-    const url = "https://testtest/v1";
+    const url = "https://nwdnxu7pak.execute-api.ap-northeast-1.amazonaws.com/v1";
 
-    this.http.get<any>(url,options).subscribe(data => {
-      console.log("successs get");
-      console.log(data);
-
-      let upload_url = data.upload_url;
-      console.log("upload_url:" + upload_url);
-
-      this.upload_s3(upload_url);
-
-
+    this.http.get<any>(url, options).subscribe({
+      next:(data) => {
+        console.log("OK");
+        console.log(data);
+        let upload_url = data.upload_url;
+        console.log("upload_url:" + upload_url);
       },
-      error => {
-        console.log("error");
-        console.log(error);
+      error:(e) =>{
+        console.log("NG");
+        console.error(e);
       },
-      () => {
-        console.log("always");
+      complete: () => {
+        console.log("complete");
       }
+    })
 
-    );
   }
 
   upload_s3(uploadUrl:string){
