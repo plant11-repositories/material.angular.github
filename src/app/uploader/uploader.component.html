@@ -1,1 +1,29 @@
-<p>uploader works!</p>
+<mat-form-field>
+
+    <mat-toolbar *ngIf="currentFile" class="progress-bar">
+      <mat-progress-bar color="primary" [value]="progress"></mat-progress-bar>
+      <span class="progress">{{ progress }}%</span>
+    </mat-toolbar>
+  
+      <div>
+        <mat-toolbar>
+          <input matInput [value]="fileName" />
+  
+          <span class="example-spacer"></span>
+          
+          <button mat-icon-button *ngIf="currentFile" (click)="upload()">
+              <mat-icon svgIcon="file_upload" aria-hidden="false"></mat-icon>
+          </button>
+  
+        </mat-toolbar>
+  
+        <input
+          type="file"
+          id="fileInput"
+          (change)="selectFile($event)"
+          name="fileInput"
+        />
+      </div>
+  
+  </mat-form-field>
+  
