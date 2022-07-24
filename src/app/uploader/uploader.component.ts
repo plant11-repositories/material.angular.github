@@ -89,7 +89,7 @@ export class UploaderComponent implements OnInit {
 
   upload_s3(uploadUrl:string){
 
-    this.http.put<any>(uploadUrl,this.fd
+    this.http.put<any>(uploadUrl,this.currentFile
       ,{reportProgress: true,observe: "events"}).subscribe({
       next:(event) => {
         if (event.type === HttpEventType.UploadProgress && event.total) {
