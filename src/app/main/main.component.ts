@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { CommonService } from '../common.service';
 
+
+
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -10,10 +12,13 @@ import { CommonService } from '../common.service';
 export class MainComponent implements OnInit {
 
   constructor(
-    private commonService:CommonService,
+    public commonService:CommonService,
   ) { }
 
+  infoList = [];
+
   ngOnInit(): void {
+    this.commonService.createFileInfoList();
   }
 
   buttonClick(){
@@ -21,3 +26,4 @@ export class MainComponent implements OnInit {
   }
 
 }
+
