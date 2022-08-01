@@ -28,8 +28,6 @@ export class MainComponent implements OnInit {
     + "&response_type=code"
     + "&redirect_uri=http://localhost:4200/";
 
-    console.log("url:" + target_url);
-    
     location.href=target_url;
   }
 }
