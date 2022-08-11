@@ -26,13 +26,14 @@ export class MainComponent implements OnInit {
     this.commonService.func01();
   }
 
-  oneDriveConnect(){
+  googleDriveConnect(){
     console.log("oneDriveConnect clicked");
-    const target_url = "https://login.microsoftonline.com/common/oauth2/v2.0/authorize?" 
-    + "client_id=4e55f9b5-c3e4-476f-96a9-1c002b84f90a"
-    + "&scope=offline_access%20files.readwrite.all"
+    const target_url = "https://accounts.google.com/o/oauth2/v2/auth?"
+    + "scope=https%3A//www.googleapis.com/auth/drive"
+    + "&access_type=offline"
     + "&response_type=code"
-    + "&redirect_uri=http://localhost:4200/";
+    + "&redirect_uri=http%3A%2F%2Flocalhost%3A4200%2F"
+    + "&client_id=476397424039-igtlmcnfd6gcp9k4jdfc5ou74pego62j.apps.googleusercontent.com";
 
     location.href=target_url;
   }

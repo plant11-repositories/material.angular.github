@@ -2,13 +2,13 @@ import urllib.parse
 import urllib.request
 import json
 
-def get_onedrive_token(code: str):
+def get_googledrive_token(code: str):
 
-    apl_client_id= "**********"
-    client_secret = "*************"
+    apl_client_id= "*********************************"
+    client_secret = "********************************"
     redirect_url = "http://localhost:4200/"
 
-    url = "https://login.microsoftonline.com/common/oauth2/v2.0/token"
+    url = "https://oauth2.googleapis.com/token"
     method = "POST"
     headers = {
         'Content-Type': 'application/x-www-form-urlencoded'
@@ -33,5 +33,5 @@ def get_onedrive_token(code: str):
 
 if __name__ == '__main__':
 
-    code = "aaaaaaaaaaaaaaaaaaaaa"
-    get_onedrive_token(code)
+    code = "aaaaaaaaaaaaaaaaaaaaaaaa"
+    get_googledrive_token(code)

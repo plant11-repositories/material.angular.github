@@ -2,13 +2,13 @@ import urllib.parse
 import urllib.request
 import json
 
-def get_onedrive_reflesh_token(refresh_token: str):
+def get_googledrive_reflesh_token(refresh_token: str):
 
-    apl_client_id= "**************"
-    client_secret = "******************"
+    apl_client_id= "*********************************"
+    client_secret = "********************************"
     redirect_url = "http://localhost:4200/"
 
-    url = "https://login.microsoftonline.com/common/oauth2/v2.0/token"
+    url = "https://oauth2.googleapis.com/token"
     method = "POST"
     headers = {
         'Content-Type': 'application/x-www-form-urlencoded'
@@ -27,13 +27,13 @@ def get_onedrive_reflesh_token(refresh_token: str):
     request = urllib.request.Request(url, data=encoded_param, method=method, headers=headers)
     with urllib.request.urlopen(request) as res:
         body = res.read()
-        #print(body)
+        print(body)
         dat = json.loads(body)
-        #print(dat)
-        print("refresh_token:" + dat["refresh_token"])
+        print(dat)
+        #print("refresh_token:" + dat["refresh_token"])
         print("access_token:" + dat["access_token"])
 
 if __name__ == '__main__':
 
-    refresh_token = "aaaaaaaaaaaaaaaaaaaaa"
-    get_onedrive_reflesh_token(refresh_token)
+    refresh_token = "aaaaaaaaaaaaaaaaaa"
+    get_googledrive_reflesh_token(refresh_token)

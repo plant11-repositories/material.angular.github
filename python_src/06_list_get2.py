@@ -2,13 +2,27 @@ import urllib.parse
 import urllib.request
 import json
 
-def get_onedrive_list(access_token: str, parent_id:str):
+def get_googledrive_item(access_token: str, id: str):
 
-    url = "https://graph.microsoft.com/v1.0/me/drive/items/" + urllib.parse.quote(parent_id) + "/children"
-
+    url = "https://www.googleapis.com/drive/v3/files/" + id
     method = "GET"
     headers = {
-        'Authorization': 'bearer ' + access_token
+        'Authorization': 'Bearer ' + access_token
+    }
+
+    request = urllib.request.Request(url, method=method, headers=headers)
+    with urllib.request.urlopen(request) as res:
+        body = res.read()
+        dat = json.loads(body)
+        print(dat)
+
+
+def get_googledrive_list(access_token: str,target_folder_id: str):
+
+    url = "https://www.googleapis.com/drive/v2/files/" + target_folder_id + "/children"
+    method = "GET"
+    headers = {
+        'Authorization': 'Bearer ' + access_token
     }
 
     request = urllib.request.Request(url, method=method, headers=headers)
@@ -16,16 +30,18 @@ def get_onedrive_list(access_token: str, parent_id:str):
         body = res.read()
         #print(body)
         dat = json.loads(body)
-        #print(dat)
-        if dat["value"]:
-            list = dat["value"]
+        print(dat)
+        if dat["items"]:
+            list = dat["items"]
             for item in list:
-                print(item)
+                id = item["id"]
+                print(id)
+                get_googledrive_item(access_token,id)
                 print("  ")
+
 
 if __name__ == '__main__':
 
-    access_token = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-    parent_id = "bbbbbbbbbbbbb"
-
-    get_onedrive_list(access_token,parent_id)
+    access_token = "aaaaaaaaaaaaaaaaaaaaa"
+    target_folder_id = "1dprfEo4a3UI-sQH02wF8gacARLtOGTju"
+    get_googledrive_list(access_token,target_folder_id)

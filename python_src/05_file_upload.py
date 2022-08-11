@@ -46,43 +46,44 @@ def upload_file_session(access_token: str, upload_url:str, target_file:pathlib.P
 
 def upload_file(access_token: str, parent_id: str, target_file:pathlib.Path):
 
-    url = "https://graph.microsoft.com/v1.0/me/drive/items/" + urllib.parse.quote(parent_id) + ":/"+ urllib.parse.quote(target_file.name) + ":/createUploadSession"
-    #print(url)
+    url = "https://www.googleapis.com/upload/drive/v3/files?uploadType=resumable"
     method = "POST"
     headers = {
         'Content-Type': 'application/json'
-        ,'Authorization': 'bearer ' + access_token
+        ,'Authorization': 'Bearer ' + access_token
     }
 
     params = {
-        "item": {
-            "@odata.type": "microsoft.graph.driveItemUploadableProperties",
-            "@microsoft.graph.conflictBehavior": "replace",
-            "name": target_file.name
-        }
+        "name": target_file.name,
+        "parents": [parent_id]
       }
 
+    print(params)
+
     encoded_param = json.dumps(params).encode("utf-8")
+
+    print(encoded_param)
 
     request = urllib.request.Request(url, data=encoded_param, method=method, headers=headers)
 
     with urllib.request.urlopen(request) as res:
-        body = res.read()
-        #print(body)
-        dat = json.loads(body)
-        #print(dat)
-        upload_url = dat["uploadUrl"]
-        print(upload_url)
-        
+        #print(res)
+
+        headers = res.info()
+        print(headers)
+
+        upload_url = headers["Location"]
+
+        print("upload_url:" + upload_url)
+
         upload_file_session(access_token,upload_url,target_file)
 
 
 if __name__ == '__main__':
 
     access_token = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-    parent_id = "bbbbbbbbbbbbbbbb"
+    parent_id = "1dprfEo4a3UI-sQH02wF8gacARLtOGTju"
     target_file = pathlib.Path("c:/tmp/テスト.docx")
-    
+
     upload_file(access_token,parent_id,target_file)
-    
-    
+
