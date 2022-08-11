@@ -14,6 +14,12 @@ export class MainComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+
+    let code = this.get_param_value("code");
+    if(code){
+      console.log("code:" + code);
+    }
+
   }
 
   buttonClick(){
@@ -30,4 +36,22 @@ export class MainComponent implements OnInit {
 
     location.href=target_url;
   }
+
+
+  get_param_value(key: string){
+    let ret_value = "";
+    if(location.search.substring(1) != ""){
+        var pair = location.search.substring(1).split('&');
+        for(var i=0;pair[i];i++) {
+            var kv = pair[i].split('=');
+            if(kv[0] == key){
+                ret_value = decodeURIComponent(kv[1]).replace(/\+/g," ");
+                break;
+            }
+        }
+    }
+    return ret_value;
+  }
+
+
 }
